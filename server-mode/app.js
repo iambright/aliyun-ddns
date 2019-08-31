@@ -36,11 +36,11 @@ http.createServer((req, res) => {
       }
       console.log(new Date() + ': [' + msg + '] ' + JSON.stringify(target));
       //res.end(msg);
-      res.end({
+      res.end(JSON.stringify({
         ...target,
         status:1,
         data:msg
-      });
+      }));
     });
   } else {
     res.statusCode = 404;
