@@ -35,7 +35,12 @@ http.createServer((req, res) => {
         res.statusCode = 400;
       }
       console.log(new Date() + ': [' + msg + '] ' + JSON.stringify(target));
-      res.end(msg);
+      //res.end(msg);
+      res.end({
+        ...target,
+        status:1,
+        data:msg
+      });
     });
   } else {
     res.statusCode = 404;
